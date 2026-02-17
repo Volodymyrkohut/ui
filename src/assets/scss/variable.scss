@@ -1,0 +1,19 @@
+:root {
+  --disabled-color: #ccc;
+
+  --G500: #07858a;
+  --G400: rgba(0, 177, 178, 1);
+
+  --R500: #b31830;
+  --R400: #e01f3d;
+
+
+  // button and inputs, select will take calc(--app-border-radius / 2)
+  --app-border-radius: 4px;
+
+
+  // buttons and input will take this height
+  --app-size--small: 32px;
+  --app-size--medium: 50px;
+  --app-size--large: 69px;
+}

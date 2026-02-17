@@ -1,0 +1,21 @@
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+//spinner
+.spinner {
+  position: absolute;
+  inset: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinnerIcon {
+  width: 1.25em;
+  height: 1.25em;
+  animation: spin 0.6s linear infinite;
+}

@@ -1,0 +1,27 @@
+.content {
+  --app-modal-content-padding: 60px 60px;
+  --app-modal-content-border-radius: var(--app-border-radius);
+  --app-modal-content-bg: #fff;
+
+  position: relative;
+  max-width: 100%;
+  z-index: 5000;
+  min-height: 100%;
+  animation: slideIn 0.2s ease-out;
+  padding: var(--app-modal-content-padding);
+  background-color: var(--app-modal-content-bg);
+  border-radius: var(--app-modal-content-border-radius);
+
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

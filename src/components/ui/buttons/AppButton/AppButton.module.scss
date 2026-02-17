@@ -1,0 +1,154 @@
+.appButton {
+
+  --app-button-radius:  calc(var(--app-border-radius) / 2);
+  --app-button-font-size: 13px;
+  --app-button-font-weight: 600;
+
+  // sizes
+  --app-button-height--small: var(--app-size--small);
+  --app-button-height--medium: var(--app-size--medium);
+  --app-button-height--large: var(--app-size--large);
+
+  // primary
+  --app-button-primary-bg: var(--G400);
+  --app-button-primary-color: #fff;
+  --app-button-primary-bg--hover: var(--G500);
+  --app-button-primary-color--hover: #fff;
+  --app-button-primary-bg--disabled: var(--disabled-color);
+  --app-button-primary-color--disabled: #fff;
+
+  // secondary
+  --app-button-secondary-bg: var(--R400);
+  --app-button-secondary-color: #fff;
+  --app-button-secondary-bg--hover: var(--R500);
+  --app-button-secondary-color--hover: #fff;
+  --app-button-secondary-bg--disabled: var(--disabled-color);
+  --app-button-secondary-color--disabled: #fff;
+
+
+  min-width: 150px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: var(--app-button-radius);
+  height: var(--app-button-height--medium);
+  font-family: inherit;
+  font-size: var(--app-button-font-size);
+  font-weight: var(--app-button-font-weight);
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+// sizes
+.small {
+  height: var(--app-button-height--small);
+  padding: 0 13px;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.medium {
+  height: var(--app-button-height--medium);
+  padding: 0 24px;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.large {
+  height: var(--app-button-height--large);
+  padding: 0 32px;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+// primary
+.primary {
+  background-color: var(--app-button-primary-bg);
+  color: var(--app-button-primary-color);
+
+  &:hover:not(.disabled):not(.loading) {
+    background-color: var(--app-button-primary-bg--hover);
+    color: var(--app-button-primary-color--hover);
+  }
+}
+
+// secondary
+.secondary {
+  background-color: var(--app-button-secondary-bg);
+  color: var(--app-button-secondary-color);
+
+  &:hover:not(.disabled):not(.loading) {
+    background-color: var(--app-button-secondary-bg--hover);
+    color: var(--app-button-secondary-color--hover);
+  }
+}
+
+// disabled
+.disabled {
+  cursor: not-allowed;
+
+  &.primary {
+    background-color: var(--app-button-primary-bg--disabled);
+    color: var(--app-button-primary-color--disabled);
+  }
+
+  &.secondary {
+    background-color: var(--app-button-secondary-bg--disabled);
+    color: var(--app-button-secondary-color--disabled);
+  }
+}
+
+button.disabled {
+  pointer-events: none;
+}
+
+.loading {
+  cursor: wait;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+// button content
+.appButtonContent {
+  display: inline-flex;
+  align-items: center;
+  gap: inherit;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.appButtonContentHidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  svg {
+    width: 1.3em;
+    height: 1.3em;
+  }
+}
+
+.appButtonText {
+  display: inline-flex;
+  align-items: center;
+}
+
+

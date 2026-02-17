@@ -1,0 +1,79 @@
+.appModal {
+  // modal
+  --app-modal-size--small: 400px;
+  --app-modal-size--medium: 600px;
+  --app-modal-size--large: 1200px;
+  --app-modal-overlay-bg: rgba(0, 0, 0, 0.5);
+
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--app-modal-overlay-bg);
+  z-index: 1000;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+
+  &.small{
+    .appModalContent{
+      width: var(--app-modal-size--small);
+    }
+  }
+
+  &.medium{
+    .appModalContent{
+      width: var(--app-modal-size--medium);
+    }
+  }
+
+  &.large{
+    .appModalContent{
+      width: var(--app-modal-size--large);
+    }
+  }
+
+  &.fullWidth{
+    padding: 0;
+
+    .appModalContent{
+      width: 100%;
+    }
+  }
+}
+
+.appModalContent{
+  padding: 15px;
+  position: relative;
+  width: 100%;
+  z-index: 4000;
+  margin: auto;
+}
+
+.appModalOverlayClose {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3000;
+}
+
+
+
+
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,18 @@
+
+.app{
+  padding: 50px;
+
+
+  h3{
+    font-size: 21px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+}
+
+.appButtons{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+  margin-bottom: 50px;
+}
