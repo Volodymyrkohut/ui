@@ -1,6 +1,8 @@
 import { type ReactNode, type FC } from 'react';
-import c from './AppModalContent.module.scss';
-import cn from "@/helpers/sn.ts";
+import styles from './AppModalContent.module.scss';
+import classNames from "classnames/bind";
+
+const cx = classNames.bind(styles);
 
 interface IProps {
   children?: ReactNode;
@@ -9,7 +11,7 @@ interface IProps {
 
 const AppModalContent: FC<IProps> = ({ children, className }) => {
   return (
-    <div className={cn(c.content, className)}>
+    <div className={cx(styles.content, className)}>
       {children}
     </div>
   );

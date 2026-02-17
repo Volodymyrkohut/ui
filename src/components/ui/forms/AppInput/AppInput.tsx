@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./AppInput.module.scss";
-import cn from "@/helpers/sn.ts"
+import classNames from "classnames/bind";
+
+const cx = classNames.bind(styles);
 
 interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   children?: React.ReactNode;
@@ -26,7 +28,16 @@ const AppInput: React.FC<IProps> = (props) => {
   } = props;
 
   return (
-    <div className={cn(styles.appInput, styles[size], error && styles.appInputError, className, isDisabled && styles.appInputDisabled)} style={style}>
+    <div className={
+      cx(styles.appInput,
+        styles[size],
+        {
+          [styles.appInputError]: error,
+          [styles.appInputDisabled]: isDisabled
+        },
+        className,
+      )}
+         style={style}>
       {label && <label className={styles.appInputLabel}>{label}</label>}
       <div className={styles.appInputWrapper}>
         <input className={styles.appInputField} disabled={isDisabled} {...rest}/>

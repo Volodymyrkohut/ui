@@ -1,7 +1,9 @@
 import { type ReactNode, type FC, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './AppModal.module.scss';
-import cn from "@/helpers/sn.ts"
+import classNames from "classnames/bind";
+
+const cx = classNames.bind(styles);
 
 // add prop positionContent if there are modals appear on left or right side of screen
 interface IProps {
@@ -45,7 +47,7 @@ const AppModal: FC<IProps> = ({ isOpen, onClose, children, size = 'medium', full
 
   return createPortal(
     <div
-      className={cn(styles.appModal, styles[size], fullWidth && styles.fullWidth)}
+      className={cx(styles.appModal, styles[size], {fullWidth})}
       role="dialog"
       aria-modal="true"
     >

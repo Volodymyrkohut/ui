@@ -6,9 +6,11 @@ import {
 } from 'react';
 
 import styles from './AppButton.module.scss';
-import cn from "@/helpers/sn.ts";
 import pickNativeProps from "@/components/ui/buttons/AppButton/helpers/pickNativeProps.ts";
 import ButtonSpinner from "@/components/ui/buttons/AppButton/components/ButtonSpinner/ButtonSpinner.tsx";
+import classNames from "classnames/bind";
+
+const cx = classNames.bind(styles);
 
 interface BaseProps {
   isLoading?: boolean;
@@ -24,28 +26,28 @@ interface BaseProps {
 
 type NativeButtonProps = BaseProps &
   Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'disabled'> & {
-    href?: undefined;
-    to?: undefined;
-  };
+  href?: undefined;
+  to?: undefined;
+};
 
 type AnchorButtonProps = BaseProps &
   Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {
-    href: string;
-    to?: undefined;
-  };
+  href: string;
+  to?: undefined;
+};
 
 type RouterLinkButtonProps = BaseProps &
   Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {
-    to: string;
-    href?: undefined;
-  };
+  to: string;
+  href?: undefined;
+};
 
 type AppButtonProps =
   | NativeButtonProps
   | AnchorButtonProps
   | RouterLinkButtonProps;
 
-const AppButton: FC<AppButtonProps> = (props)=> {
+const AppButton: FC<AppButtonProps> = (props) => {
   const {
     isLoading = false,
     isDisabled = false,
@@ -63,21 +65,23 @@ const AppButton: FC<AppButtonProps> = (props)=> {
 
   const disabled = isDisabled || isLoading;
 
-  const rootClassName = cn(
+  const rootClassName = cx(
     styles.appButton,
     styles[size],
     styles[variant],
-    fullWidth && styles.fullWidth,
-    isLoading && styles.loading,
-    disabled && styles.disabled,
-    isUppercase && styles.uppercase,
+    {
+      fullWidth,
+      disabled,
+      loading: isLoading,
+      uppercase: isUppercase,
+    },
     className,
   );
 
   const content = (
     <>
-      {isLoading && <ButtonSpinner />}
-      <span className={cn(styles.appButtonContent, isLoading && styles.appButtonContentHidden)}>
+      {isLoading && <ButtonSpinner/>}
+      <span className={cx(styles.appButtonContent, { [styles.appButtonContentHidden]: isLoading })}>
         {icon && iconPosition === 'left' && (
           <span className={styles.icon}>{icon}</span>
         )}

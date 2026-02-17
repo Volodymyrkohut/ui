@@ -105,7 +105,7 @@ function App() {
 
       <h3>Модальне вікно</h3>
       <AppButton onClick={onOpen}>Open modal</AppButton>
-      <AppModal isOpen={isOpen} onClose={onClose} size={'medium'}>
+      <AppModal isOpen={isOpen} onClose={onClose} size={'medium'} >
         <AppModalContent>
           <h2>Modal title</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, expedita?</p>

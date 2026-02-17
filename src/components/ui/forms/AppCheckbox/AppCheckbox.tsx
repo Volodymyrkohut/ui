@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./AppCheckbox.module.scss";
-import cn from "@/helpers/sn.ts";
+import classNames from "classnames/bind";
 
+const cx = classNames.bind(styles);
 
 interface IProps extends React.HTMLAttributes<HTMLInputElement> {
   children?: React.ReactNode;
@@ -14,7 +15,7 @@ interface IProps extends React.HTMLAttributes<HTMLInputElement> {
 
 const AppCheckbox: React.FC<IProps> = ({ label, isChecked, isDisabled, variant = 'primary', size = 'md', ...rest }) => {
 
-  const classes = cn(styles.appCheckbox, styles[size], styles[variant], isChecked && 'checked', isDisabled && 'disabled');
+  const classes = cx(styles.appCheckbox, styles[size], styles[variant], { checked: isChecked, disabled: isDisabled });
 
   return (
     <label className={classes}>

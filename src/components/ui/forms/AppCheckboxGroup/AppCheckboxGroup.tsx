@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./AppCheckboxGroup.module.scss";
 import AppCheckbox from "@/components/ui/forms/AppCheckbox/AppCheckbox.tsx";
-import cn from "@/helpers/sn.ts";
+import classNames from "classnames/bind";
+
+const cx = classNames.bind(styles);
 
 interface ICheckboxRenderProps<T> {
   option: T;
@@ -26,19 +28,19 @@ interface IProps<T extends Record<string, unknown>> {
 }
 
 function AppCheckboxGroup<T extends Record<string, unknown>>({
-  options,
-  value = [],
-  onChange,
-  renderCheckbox,
-  variant = 'primary',
-  size = 'medium',
-  isDisabled = false,
-  valueKey = 'value' as keyof T,
-  labelKey = 'label' as keyof T,
-  disabledKey = 'isDisabled' as keyof T, // key for option disabled
-  checkboxGroupClassName = '',
-  checkboxGroupOptionClassName = '',
-}: IProps<T>) {
+                                                               options,
+                                                               value = [],
+                                                               onChange,
+                                                               renderCheckbox,
+                                                               variant = 'primary',
+                                                               size = 'medium',
+                                                               isDisabled = false,
+                                                               valueKey = 'value' as keyof T,
+                                                               labelKey = 'label' as keyof T,
+                                                               disabledKey = 'isDisabled' as keyof T, // key for option disabled
+                                                               checkboxGroupClassName = '',
+                                                               checkboxGroupOptionClassName = '',
+                                                             }: IProps<T>) {
 
   const handleCheckboxChange = (optionValue: string | number) => {
     if (!onChange) return;
@@ -52,7 +54,7 @@ function AppCheckboxGroup<T extends Record<string, unknown>>({
   };
 
   return (
-    <div className={cn(styles.appCheckboxGroup, checkboxGroupClassName)}>
+    <div className={cx(styles.appCheckboxGroup, checkboxGroupClassName)}>
       {options.map((option) => {
         const optionValue = option[valueKey] as string | number;
         const optionLabel = option[labelKey] as string;
@@ -61,7 +63,8 @@ function AppCheckboxGroup<T extends Record<string, unknown>>({
 
         if (renderCheckbox) {
           return (
-            <div key={optionValue} className={cn(styles.appCheckboxGroupOption, checkboxGroupOptionClassName, (optionDisabled || isDisabled) && styles['disabled'])}>
+            <div key={optionValue}
+                 className={cx(styles.appCheckboxGroupOption, checkboxGroupOptionClassName, { disabled: optionDisabled || isDisabled })}>
               {renderCheckbox({
                 option,
                 isActive,
