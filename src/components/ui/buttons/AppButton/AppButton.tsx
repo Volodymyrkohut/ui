@@ -16,8 +16,8 @@ interface BaseProps {
   isLoading?: boolean;
   isDisabled?: boolean;
   isUppercase?: boolean;
-  icon?: ReactNode;
-  iconPosition?: 'left' | 'right';
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
   size?: IUiSizes;
   variant?: IUiVariants;
   fullWidth?: boolean;
@@ -52,8 +52,8 @@ const AppButton: FC<AppButtonProps> = (props) => {
     isLoading = false,
     isDisabled = false,
     isUppercase = false,
-    icon,
-    iconPosition = 'left',
+    startIcon,
+    endIcon,
     size = 'medium',
     variant = 'primary',
     fullWidth = false,
@@ -82,13 +82,9 @@ const AppButton: FC<AppButtonProps> = (props) => {
     <>
       {isLoading && <ButtonSpinner/>}
       <span className={cx(styles.appButtonContent, { [styles.appButtonContentHidden]: isLoading })}>
-        {icon && iconPosition === 'left' && (
-          <span className={styles.icon}>{icon}</span>
-        )}
+        {startIcon && <span className={styles.icon}>{startIcon}</span>}
         {children != null && <span className={styles.appButtonText}>{children}</span>}
-        {icon && iconPosition === 'right' && (
-          <span className={styles.icon}>{icon}</span>
-        )}
+        {endIcon && <span className={styles.icon}>{endIcon}</span>}
       </span>
     </>
   );

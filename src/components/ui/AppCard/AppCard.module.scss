@@ -1,0 +1,36 @@
+.appCard {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--app-border-radius);
+  background: #ffffff;
+  overflow: hidden;
+
+  &.outlined {
+    border: 1px solid #e5e7eb;
+  }
+
+  &.elevated {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  &Header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  &Body {
+    padding: 20px;
+    flex: 1;
+  }
+
+  &Footer {
+    padding: 12px 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}

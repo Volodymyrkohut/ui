@@ -1,24 +1,29 @@
-
-.appCheckboxSkinPrimary {
+.appOptionCard {
   display: inline-block;
   min-height: 80px;
   padding: 10px;
   border: 1px solid #e5e5e5;
   border-radius: calc(var(--app-border-radius) / 2);
-  position: relative;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
 
-  .appCheckboxSkinPrimaryTitle {
+  &:hover {
+    border-color: #b5b5b5;
+  }
+
+  &Title {
     font-size: 16px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
 
-  .appCheckboxSkinPrimaryDescription {
-    margin-bottom: 10px;
+  &Description {
     font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 10px;
   }
 
-  .appCheckboxSkinPrimaryPrice {
+  &Price {
     font-weight: 600;
     font-size: 19px;
   }
@@ -29,6 +34,7 @@
   }
 
   &.disabled {
-
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }

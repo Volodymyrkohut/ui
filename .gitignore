@@ -25,3 +25,6 @@ dist-ssr
 package-lock.json
 CLAUDE.md
 yarn.lock
+
+*storybook.log
+storybook-static

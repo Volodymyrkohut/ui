@@ -1,29 +1,46 @@
-import React from "react";
-import styles from "./AppCheckbox.module.scss";
-import classNames from "classnames/bind";
+import React from 'react'
+import styles from './AppCheckbox.module.scss'
+import classNames from 'classnames/bind'
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(styles)
 
-interface IProps extends React.HTMLAttributes<HTMLInputElement> {
-  children?: React.ReactNode;
-  label?: string;
-  isChecked: boolean;
-  isDisabled?: boolean;
-  variant?: IUiVariants;
-  size?: IUiSizes;
+interface IProps {
+  label?: string
+  isChecked: boolean
+  isDisabled?: boolean
+  onChange?: React.ChangeEventHandler<HTMLInputElement>
+  variant?: IUiVariants
+  size?: IUiSizes
+  className?: string
 }
 
-const AppCheckbox: React.FC<IProps> = ({ label, isChecked, isDisabled, variant = 'primary', size = 'md', ...rest }) => {
+const AppCheckbox: React.FC<IProps> = ({
+  label,
+  isChecked,
+  isDisabled,
+  onChange,
+  variant = 'primary',
+  size = 'medium',
+  className,
+}) => (
+  <label
+    className={cx(
+      styles.appCheckbox,
+      styles[size],
+      styles[variant],
+      { checked: isChecked, disabled: isDisabled },
+      className,
+    )}
+  >
+    <input
+      type="checkbox"
+      checked={isChecked}
+      disabled={isDisabled}
+      onChange={onChange}
+    />
+    <span className={styles.appCheckboxView} />
+    {label && <div className={styles.appCheckboxLabel}>{label}</div>}
+  </label>
+)
 
-  const classes = cx(styles.appCheckbox, styles[size], styles[variant], { checked: isChecked, disabled: isDisabled });
-
-  return (
-    <label className={classes}>
-      <input type="checkbox" {...rest} checked={isChecked} disabled={isDisabled}/>
-      <span className={styles.appCheckboxView}></span>
-      {label && <div className={styles.appCheckboxLabel}>{label}</div>}
-    </label>
-  );
-};
-
-export default AppCheckbox;
+export default AppCheckbox

@@ -8,7 +8,6 @@
   flex-direction: column;
   gap: 6px;
   width: 100%;
-  //margin-bottom: 20px;
 
   &.small {
     input {
@@ -31,6 +30,18 @@
     }
   }
 
+  &.hasStartIcon {
+    .appInputField {
+      padding-left: 42px;
+    }
+  }
+
+  &.hasEndIcon {
+    .appInputField {
+      padding-right: 42px;
+    }
+  }
+
   &Label {
     font-size: 14px;
     font-weight: 500;
@@ -46,7 +57,6 @@
   &Field {
     width: 100%;
     padding: 0 14px;
-    padding-right: 42px; // place for icon
     border-radius: var(--app-input-border-radius);
     border: 1px solid #dcdcdc;
     background: #ffffff;
@@ -76,19 +86,26 @@
 
   &Icon {
     position: absolute;
-    right: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     pointer-events: none;
 
-    svg{
+    svg {
       width: 1.3em;
       height: 1.3em;
     }
+
+    &Start {
+      left: 14px;
+    }
+
+    &End {
+      right: 14px;
+    }
   }
 
-  &Error {
+  &ErrorText {
     font-size: 12px;
     color: #ef4444;
   }

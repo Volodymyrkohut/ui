@@ -7,8 +7,7 @@ import AppModalContent from "@/components/ui/modals/AppModal/components/AppModal
 import AppModal from "@/components/ui/modals/AppModal/AppModal.tsx";
 import AppCheckboxGroup from "@/components/ui/forms/AppCheckboxGroup/AppCheckboxGroup.tsx";
 import { useState } from "react";
-import AppCheckboxSkinPrimary
-  from "@/components/ui/forms/AppCheckboxGroup/components/AppCheckboxSkinPrimary/AppCheckboxSkinPrimary.tsx";
+import AppOptionCard from "@/components/ui/forms/AppOptionCard/AppOptionCard.tsx";
 
 
 const options = [
@@ -38,21 +37,21 @@ function App() {
     <div className={styles.app}>
       <h3>Кнопки</h3>
       <div className={styles.appButtons}>
-        <AppButton variant="primary" size="small" href={'/'} icon={<IconBell/>}>Оформити</AppButton>
+        <AppButton variant="primary" size="small" href={'/'} startIcon={<IconBell/>}>Оформити</AppButton>
         <AppButton variant="primary" size="medium" isUppercase >Продовжити Покупку</AppButton>
-        <AppButton variant="primary" size="large" to={'/'} isUppercase icon={<IconBell/>} iconPosition="right">Бронювати зараз</AppButton>
+        <AppButton variant="primary" size="large" to={'/'} isUppercase endIcon={<IconBell/>}>Бронювати зараз</AppButton>
         <AppButton variant="secondary" size="small">Продовжити</AppButton>
         <AppButton variant="secondary" size="medium">Продовжити</AppButton>
-        <AppButton variant="secondary" size="large" isUppercase icon={<IconBell/>} iconPosition="left">Бронювати зараз</AppButton>
-        <AppButton variant="secondary" size="small" isDisabled icon={<IconBell/>} href={''}>Disabled Link</AppButton>
+        <AppButton variant="secondary" size="large" isUppercase startIcon={<IconBell/>}>Бронювати зараз</AppButton>
+        <AppButton variant="secondary" size="small" isDisabled startIcon={<IconBell/>} href={''}>Disabled Link</AppButton>
         <AppButton variant="secondary" size="medium" isDisabled isUppercase>Disabled Button</AppButton>
         <AppButton variant="secondary" size="large" isLoading>Купити</AppButton>
       </div>
 
       <h3>Інпути</h3>
       <div className={styles.appButtons}>
-        <AppInput size="small" error={"Це поле обов'язкове"} value={'Hello'} label={'Введіть своє імя'} icon={<IconBell/>}/>
-        <AppInput size="medium" help={"Зверніть увагу"} value={'Hello'} label={'Введіть своє імя'} icon={<IconBell/>}/>
+        <AppInput size="small" error={"Це поле обов'язкове"} value={'Hello'} label={'Введіть своє імя'} endIcon={<IconBell/>}/>
+        <AppInput size="medium" help={"Зверніть увагу"} value={'Hello'} label={'Введіть своє імя'} endIcon={<IconBell/>}/>
         <AppInput size="large" value={''} label={'Введіть своє імя'}/>
         <AppInput size="small" value={''} placeholder={"Введіть своє імя"} label={'Введіть своє імя'}/>
         <AppInput size="medium" value={''} placeholder={"Введіть своє імя"} label={'Введіть своє імя'} isDisabled/>
@@ -92,13 +91,14 @@ function App() {
           value={selectedValues2}
           onChange={setSelectedValues2}
           renderCheckbox={({ option, isActive, isDisabled, onChange }) => (
-              <AppCheckboxSkinPrimary
-                onClick={() => onChange(option.value)}
-                isActive={isActive}
-                isDisabled={isDisabled}
-                title={option.label}
-                description={option.description}
-              />
+            <AppOptionCard
+              onClick={() => onChange(option.value)}
+              isActive={isActive}
+              isDisabled={isDisabled}
+              title={option.label}
+              description={option.description}
+              price={option.price}
+            />
           )}
         />
 

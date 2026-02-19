@@ -1,8 +1,8 @@
 const CUSTOM_KEYS = new Set([
   'isLoading',
   'isDisabled',
-  'icon',
-  'iconPosition',
+  'startIcon',
+  'endIcon',
   'size',
   'variant',
   'fullWidth',
