@@ -5,18 +5,18 @@ import classNames from 'classnames/bind'
 
 const cx = classNames.bind(styles)
 
-interface ICheckboxRenderProps<T> {
+type CheckboxRenderProps<T> = {
   option: T
   isActive: boolean
   isDisabled: boolean
   onChange: (value: string | number) => void
 }
 
-interface IProps<T extends Record<string, unknown>> {
+type Props<T extends Record<string, unknown>> = {
   options: T[]
   value?: (string | number)[]
   onChange?: (values: (string | number)[]) => void
-  renderCheckbox?: (props: ICheckboxRenderProps<T>) => React.ReactNode
+  renderCheckbox?: (props: CheckboxRenderProps<T>) => React.ReactNode
   variant?: IUiVariants
   size?: IUiSizes
   isDisabled?: boolean
@@ -40,7 +40,7 @@ function AppCheckboxGroup<T extends Record<string, unknown>>({
   disabledKey = 'isDisabled' as keyof T,
   className = '',
   optionClassName = '',
-}: IProps<T>) {
+}: Props<T>) {
   const handleCheckboxChange = (optionValue: string | number) => {
     if (!onChange) return
     const isChecked = value.includes(optionValue)

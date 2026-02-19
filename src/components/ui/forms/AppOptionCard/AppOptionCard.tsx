@@ -5,15 +5,15 @@ import PriceViewer from '@/components/formatters/PriceViewer/PriceViewer'
 
 const cx = classNames.bind(styles)
 
-interface IProps extends React.HTMLAttributes<HTMLDivElement> {
-    title: string
-    description?: string
-    price?: number | string
-    isActive: boolean
-    isDisabled?: boolean
+type Props = React.HTMLAttributes<HTMLDivElement> & {
+  title: string
+  description?: string
+  price?: number | string
+  isActive: boolean
+  isDisabled?: boolean
 }
 
-const AppOptionCard: React.FC<IProps> = ({
+const AppOptionCard: React.FC<Props> = ({
                                              title,
                                              description,
                                              price,

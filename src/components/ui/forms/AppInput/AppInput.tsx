@@ -5,19 +5,18 @@ import InputSpinner from "./components/InputSpinner/InputSpinner";
 
 const cx = classNames.bind(styles);
 
-interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  children?: React.ReactNode;
-  error?: string;
-  help?: string;
-  label?: string;
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
-  isDisabled?: boolean;
-  isLoading?: boolean;
-  size?: IUiSizes;
+type Props = React.InputHTMLAttributes<HTMLInputElement> & {
+  error?: string
+  help?: string
+  label?: string
+  startIcon?: React.ReactNode
+  endIcon?: React.ReactNode
+  isDisabled?: boolean
+  isLoading?: boolean
+  size?: IUiSizes
 }
 
-const AppInput: React.FC<IProps> = (props) => {
+const AppInput: React.FC<Props> = (props) => {
   const {
     label,
     startIcon,

@@ -6,15 +6,15 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 // add prop positionContent if there are modals appear on left or right side of screen
-interface IProps {
-    isOpen: boolean;
-    onClose: () => void;
-    size?: IUiSizes;
-    fullWidth?: boolean;
-    children?: ReactNode;
+type Props = {
+  isOpen: boolean
+  onClose: () => void
+  size?: IUiSizes
+  fullWidth?: boolean
+  children?: ReactNode
 }
 
-const AppModal: FC<IProps> = ({isOpen, onClose, children, size = 'medium', fullWidth}) => {
+const AppModal: FC<Props> = ({isOpen, onClose, children, size = 'medium', fullWidth}) => {
     const handleEscape = useCallback(
         (e: KeyboardEvent) => {
             if (e.key === 'Escape') {

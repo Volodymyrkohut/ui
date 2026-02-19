@@ -39,7 +39,7 @@ function App() {
       <div className={styles.appButtons}>
         <AppButton variant="primary" size="small" href={'/'} startIcon={<IconBell/>}>Оформити</AppButton>
         <AppButton variant="primary" size="medium" isUppercase >Продовжити Покупку</AppButton>
-        <AppButton variant="primary" size="large" to={'/'} isUppercase endIcon={<IconBell/>}>Бронювати зараз</AppButton>
+        <AppButton variant="primary" size="large" href={'/'} isUppercase endIcon={<IconBell/>}>Бронювати зараз</AppButton>
         <AppButton variant="secondary" size="small">Продовжити</AppButton>
         <AppButton variant="secondary" size="medium">Продовжити</AppButton>
         <AppButton variant="secondary" size="large" isUppercase startIcon={<IconBell/>}>Бронювати зараз</AppButton>

@@ -4,7 +4,7 @@ import classNames from 'classnames/bind'
 
 const cx = classNames.bind(styles)
 
-interface IProps {
+type Props = {
   label?: string
   isChecked: boolean
   isDisabled?: boolean
@@ -14,7 +14,7 @@ interface IProps {
   className?: string
 }
 
-const AppCheckbox: React.FC<IProps> = ({
+const AppCheckbox: React.FC<Props> = ({
   label,
   isChecked,
   isDisabled,

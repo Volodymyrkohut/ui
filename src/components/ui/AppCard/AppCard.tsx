@@ -5,18 +5,18 @@ import AppButton from '@/components/ui/buttons/AppButton/AppButton'
 
 const cx = classNames.bind(styles)
 
-interface ICardProps {
+type CardProps = {
   children?: React.ReactNode
   className?: string
   variant?: 'outlined' | 'elevated'
 }
 
-interface ISlotProps {
+type SlotProps = {
   children?: React.ReactNode
   className?: string
 }
 
-export interface ICardAction {
+export type CardAction = {
   label: string
   variant?: IUiVariants
   isDisabled?: boolean
@@ -25,29 +25,29 @@ export interface ICardAction {
   href?: string
 }
 
-interface IFooterProps extends ISlotProps {
-  actions?: ICardAction[]
+type FooterProps = SlotProps & {
+  actions?: CardAction[]
 }
 
-const AppCard = ({ children, className, variant = 'outlined' }: ICardProps) => (
+const AppCard = ({ children, className, variant = 'outlined' }: CardProps) => (
   <div className={cx(styles.appCard, styles[variant], className)}>
     {children}
   </div>
 )
 
-const Header = ({ children, className }: ISlotProps) => (
+const Header = ({ children, className }: SlotProps) => (
   <div className={cx(styles.appCardHeader, className)}>
     {children}
   </div>
 )
 
-const Body = ({ children, className }: ISlotProps) => (
+const Body = ({ children, className }: SlotProps) => (
   <div className={cx(styles.appCardBody, className)}>
     {children}
   </div>
 )
 
-const Footer = ({ children, className, actions }: IFooterProps) => (
+const Footer = ({ children, className, actions }: FooterProps) => (
   <div className={cx(styles.appCardFooter, className)}>
     {actions?.map(({ label, onClick, href, ...rest }) =>
       href ? (

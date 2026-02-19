@@ -2,13 +2,12 @@ import styles from './PriceViewer.module.scss';
 import React from "react";
 import classNames from 'classnames';
 
-interface IProps {
-  price: number | string;
-  className?: string;
+type Props = {
+  price: number | string
+  className?: string
 }
 
-
-const PriceViewer: React.FC<IProps> = (props) => {
+const PriceViewer: React.FC<Props> = (props) => {
   const { className, ...rest } = props;
   const selectCurrency = window.localStorage.getItem('currency') || 'UAH'; //
   const priceClassName = classNames(styles.priceViewer, className);

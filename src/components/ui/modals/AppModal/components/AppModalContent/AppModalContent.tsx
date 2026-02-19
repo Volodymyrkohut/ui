@@ -5,7 +5,7 @@ import AppButton from '@/components/ui/buttons/AppButton/AppButton'
 
 const cx = classNames.bind(styles)
 
-export interface IModalAction {
+export type ModalAction = {
   label: string
   variant?: IUiVariants
   isDisabled?: boolean
@@ -14,24 +14,24 @@ export interface IModalAction {
   href?: string
 }
 
-interface IProps {
+type Props = {
   children?: ReactNode
   className?: string
 }
 
-interface IFooterProps {
+type FooterProps = {
   children?: ReactNode
   className?: string
-  actions?: IModalAction[]
+  actions?: ModalAction[]
 }
 
-const AppModalContent: FC<IProps> & { Footer: FC<IFooterProps> } = ({ children, className }) => (
+const AppModalContent: FC<Props> & { Footer: FC<FooterProps> } = ({ children, className }) => (
   <div className={cx(styles.content, className)}>
     {children}
   </div>
 )
 
-const Footer: FC<IFooterProps> = ({ children, className, actions }) => (
+const Footer: FC<FooterProps> = ({ children, className, actions }) => (
   <div className={cx(styles.contentFooter, className)}>
     {actions?.map(({ label, onClick, href, ...rest }) =>
       href ? (
